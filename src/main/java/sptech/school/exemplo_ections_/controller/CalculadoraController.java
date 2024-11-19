@@ -4,16 +4,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import sptech.school.exemplo_actions.service.CalculadoraService;
-
 
 
 @RestController
 public class CalculadoraController {
 
-    private final CalculadoraService calculadoraService;
+    private final sptech.school.exemplo_ections_.service.CalculadoraService calculadoraService;
 
-    public CalculadoraController(CalculadoraService calculadoraService) {
+    public CalculadoraController(sptech.school.exemplo_ections_.service.CalculadoraService calculadoraService) {
         this.calculadoraService = calculadoraService;
     }
 
