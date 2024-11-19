@@ -19,3 +19,19 @@ jobs: # Trabalhos a serem executados
 
       - name: Build with Maven # Nome do passo, nesse caso, buildar com Maven
         run: mvn -B package -DskipTests # Comando a ser executado
+
+  test: # Nome do trabalho, pode ser qualquer um de sua escolha
+    runs-on: ubuntu-latest # Sistema operacional a ser utilizado
+    needs: build # Dependência do trabalho build
+    steps: # Passos a serem executados
+      - name: Checkout code # Nome do passo, nesse caso, clonar o repositório
+        uses: actions/checkout@v4 # action escolhida para clonar o repositório
+
+      - name: Set up JDK 17 # Nome do passo, nesse caso, configurar o JDK 17
+        uses: actions/setup-java@v4 # action escolhida para configurar o JDK
+        with: # Configurações da action
+          distribution: 'temurin' # Distribuição do JDK
+          java-version: '17' # Versão do JDK
+
+      - name: Test with Maven # Nome do passo, nesse caso, testar com Maven
+        run: mvn test # Comando a ser executado
